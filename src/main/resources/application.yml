@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   tomcat:
     uri-encoding: utf-8
 
@@ -21,10 +21,10 @@ mybatis-plus:
   # 实体类扫描路径
   type-aliases-package: com.picc.*.entity
   # xml 扫描路径
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mapper/*/*.xml
   configuration:
     jdbc-type-for-null: null
-    #是否映射_
+    #实体驼峰是否映射下划线_
     map-underscore-to-camel-case: false
   global-config:
     # 关闭 mybatis-plus的 banner

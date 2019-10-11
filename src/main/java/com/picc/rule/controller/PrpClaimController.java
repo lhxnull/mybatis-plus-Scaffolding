@@ -20,9 +20,26 @@ public class PrpClaimController {
     @Autowired
     private IPrpclaimService iPrpclaimService;
 
+    /**
+     * mybatisplus方式查询
+     * @param id
+     * @return
+     */
     @GetMapping("list")
     public FebsResponse loginLogList(@RequestParam String id) {
         PrpClaimInfo prpClaimInfo  = iPrpclaimService.findbyId("17f1bc4e-28dc-4c0e-ae4a-2f790ace5b34");
+//        PrpClaimInfo prpClaimInfo  = iPrpclaimService.getById("17f1bc4e-28dc-4c0e-ae4a-2f790ace5b34");
+        return new FebsResponse().success().data(prpClaimInfo);
+    }
+
+    /**
+     * 通过mapper方式查询
+     * @param id
+     * @return
+     */
+    @GetMapping("list2")
+    public FebsResponse loginLogList2(@RequestParam String id) {
+        PrpClaimInfo prpClaimInfo  = iPrpclaimService.findbyMapperId("17f1bc4e-28dc-4c0e-ae4a-2f790ace5b34");
         return new FebsResponse().success().data(prpClaimInfo);
     }
 }

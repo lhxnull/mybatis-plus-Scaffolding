@@ -42,6 +42,7 @@ public class FebsStartedUpRunner implements ApplicationRunner {
         try {
             // 测试 Redis连接是否正常
             redisService.exists("febs_test");
+            log.info("Redis连接正常");
         } catch (Exception e) {
             log.error(" ____   __    _   _ ");
             log.error("| |_   / /\\  | | | |");

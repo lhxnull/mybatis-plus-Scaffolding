@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
@@ -17,6 +16,7 @@ public class PrpClaimInfo {
     /**
      * 请求唯一码
      */
+//    @Id
     @TableId(value = "uuid",type = IdType.UUID)
     private String uuid;
 
