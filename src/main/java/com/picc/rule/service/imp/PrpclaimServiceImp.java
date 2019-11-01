@@ -1,6 +1,5 @@
 package com.picc.rule.service.imp;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.picc.rule.entity.PrpClaimInfo;
@@ -22,6 +21,11 @@ public class PrpclaimServiceImp extends ServiceImpl<PrpclaimMapper, PrpClaimInfo
         QueryWrapper<PrpClaimInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(PrpClaimInfo::getUuid, ID);
         return this.getOne(queryWrapper);
+    }
+
+    @Override
+    public PrpClaimInfo findbyMapperId(String Id) {
+        return this.baseMapper.findbyMapperId(Id);
     }
 
 

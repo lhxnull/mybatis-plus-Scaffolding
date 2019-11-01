@@ -8,4 +8,6 @@ import com.picc.rule.entity.PrpClaimInfo;
  */
 
 public interface PrpclaimMapper extends BaseMapper<PrpClaimInfo> {
+
+    PrpClaimInfo findbyMapperId(String Id);
 }

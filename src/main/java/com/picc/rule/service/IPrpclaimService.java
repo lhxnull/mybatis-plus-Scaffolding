@@ -1,5 +1,6 @@
 package com.picc.rule.service;
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.picc.rule.entity.PrpClaimInfo;
 
@@ -9,4 +10,6 @@ import com.picc.rule.entity.PrpClaimInfo;
 public interface IPrpclaimService extends IService<PrpClaimInfo> {
 
     PrpClaimInfo findbyId(String ID);
+
+    PrpClaimInfo findbyMapperId(String Id);
 }
