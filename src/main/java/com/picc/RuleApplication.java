@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @SpringBootApplication
 @EnableTransactionManagement//事务支持
-@MapperScan("com.picc.*.mapper")
+@MapperScan({"com.picc.*.mapper","com.picc.*.*.mapper"})
 public class RuleApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(RuleApplication.class).run(args);
     }
 }
+
