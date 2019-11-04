@@ -16,6 +16,7 @@ import java.util.Map;
 
 /**
  * 示例见test包下CRUDDemo.java
+ * 单标查询可以做到零sql
  * Created by Administrator on 2019/9/30.
  */
 @Slf4j
@@ -27,6 +28,7 @@ public class PrpClaimController extends BaseController {
 
     /**
      * mybatisplus方式查询
+     *
      * @param id
      * @return
      */
@@ -35,12 +37,11 @@ public class PrpClaimController extends BaseController {
         PrpClaimInfo prpClaimInfo  = iPrpclaimService.findbyId("17f1bc4e-28dc-4c0e-ae4a-2f790ace5b34");
 //        PrpClaimInfo prpClaimInfo  = iPrpclaimService.getById("17f1bc4e-28dc-4c0e-ae4a-2f790ace5b34");
 
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         return new FebsResponse().success().data(prpClaimInfo);
     }
 
     /**
-     * 通过mapper方式查询
+     * 通过 xml方式查询
      * @param id
      * @return
      */
