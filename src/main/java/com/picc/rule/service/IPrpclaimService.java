@@ -20,4 +20,7 @@ public interface IPrpclaimService extends IService<PrpClaimInfo> {
     IPage<PrpClaimInfo> findAll(PrpClaimInfo prpClaimInfo,QueryRequest request);
 
     IPage<PrpClaimInfo> findByRegistno(PrpClaimInfo prpClaimInfo,QueryRequest request);
+
+    List<PrpClaimInfo> getId(String Id);
+
 }

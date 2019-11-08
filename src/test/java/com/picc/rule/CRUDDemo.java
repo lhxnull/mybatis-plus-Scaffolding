@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -110,10 +111,13 @@ public class CRUDDemo extends BaseController {
 //        System.out.println(dataTable);
     }
 
-
-
-
-
-
-
+    /**
+     * 排除查询的某个字段
+     * @throws Exception
+     */
+    @Test
+    public void getId() throws Exception {
+        List<PrpClaimInfo> list = iPrpclaimService.getId("fd17accb-558c-496c-9e19-efb8551e26c2");
+        list.forEach(System.out::println);
+    }
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.picc.common.entity.FebsConstant;
@@ -26,6 +27,7 @@ import java.util.function.Predicate;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class PrpclaimServiceImp extends ServiceImpl<PrpclaimMapper, PrpClaimInfo> implements IPrpclaimService {
+
 
     @Override
     public PrpClaimInfo findbyId(String ID) {
@@ -59,6 +61,21 @@ public class PrpclaimServiceImp extends ServiceImpl<PrpclaimMapper, PrpClaimInfo
 
         return page.setRecords(this.baseMapper.findByRegistno("%"+prpClaimInfo.getRegistNo()+"%"));
     }
+
+    @Override
+    public List<PrpClaimInfo> getId(String Id) {
+//        LambdaQueryWrapper<PrpClaimInfo> queryWrapper = new LambdaQueryWrapper<>(new PrpClaimInfo());
+//        queryWrapper.select(i->i.getColumn().equalsIgnoreCase("registno")).eq(StringUtils.isNotBlank(Id),PrpClaimInfo::getUuid,Id);
+//        List<PrpClaimInfo> prpClaimInfos = this.baseMapper.selectList(queryWrapper);
+//        return prpClaimInfos;
+//        方式二
+        LambdaQueryWrapper<PrpClaimInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.select(PrpClaimInfo.class,p->p.getColumn().equalsIgnoreCase("registno")).eq(
+                StringUtils.isNotBlank(Id),PrpClaimInfo::getUuid,Id);
+        List<PrpClaimInfo> prpClaimInfos = this.baseMapper.selectList(queryWrapper);
+        return prpClaimInfos;
+    }
+
 
 
 }
